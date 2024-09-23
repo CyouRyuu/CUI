@@ -265,4 +265,12 @@ a:hover {
   #input-line {
     margin-left: 8px;
   }
+
+  .icon-large {
+    font-size: 15px;
+  }
+
+  .icon-small {
+    font-size: 18px;
+  }
 }
