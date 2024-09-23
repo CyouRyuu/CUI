@@ -5,11 +5,11 @@ const createAbout = () : string[] => {
 
   const SPACE = "&nbsp;";
   
-  const email = `<a href='mailto:${command.social.email}' class='fa fa-envelope' style='font-size:24px'></a>`;
-  const cv = `<a href='https://cyouryuu.github.io/${command.social.cv}' class='ai ai-cv' style='font-size:24px'></a>`;
-  const orcid = `<a href='https://orcid.org/${command.social.orcid}' class='ai ai-orcid' style='font-size:24px'></a>`;
-  const dblp = `<a href='https://dblp.org/pid/${command.social.dblp}' class='ai ai-dblp ai-2x'></a>`;
-  const googleScholar = `<a href='https://scholar.google.com/citations?user=${command.social.googleScholar}' class='ai ai-google-scholar ai-2x'></a>`;
+  const email = `<a href='mailto:${command.social.email}' class='fa fa-envelope icon-large'></a>`;
+  const cv = `<a href='https://cyouryuu.github.io/${command.social.cv}' class='ai ai-cv icon-large'></a>`;
+  const orcid = `<a href='https://orcid.org/${command.social.orcid}' class='ai ai-orcid icon-large'></a>`;
+  const dblp = `<a href='https://dblp.org/pid/${command.social.dblp}' class='ai ai-dblp icon-small'></a>`;
+  const googleScholar = `<a href='https://scholar.google.com/citations?user=${command.social.googleScholar}' class='ai ai-google-scholar icon-small'></a>`;
   let string = "";
   const keywords = ["Aolong Zha", "Search", "Constraint Satisfaction", "Combinatorial Optimization", "GPGPU"];
 

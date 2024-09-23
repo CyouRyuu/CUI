@@ -221,6 +221,15 @@ a:hover {
   width: 560px;
 }
 
+/* 针对大屏幕 */
+.icon-large {
+  font-size: 20px;
+}
+
+.icon-small {
+  font-size: 24px;
+}
+
 @media (max-width: 600px) {
   body {
     font-size: 10px;
