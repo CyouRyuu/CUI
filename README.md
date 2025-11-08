@@ -2,7 +2,7 @@
 
 Highly customizable, easy-to-use, and terminal styled website template, powered by [Vite](https://vitejs.dev).
 
-After you cloned this repository, simply run `npm install` > `npm run build` > `npm run preview` and start editing `config.json` to build your website!
+After you cloned this repository, simply run `npm install vite@latest --save-dev` > `npm run build` > `npm run preview` and start editing `config.json` to build your website!
 
 ## Deploy on Github
 

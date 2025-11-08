@@ -248,22 +248,24 @@ class TetrisGame {
     )
   }
 
-  private checkCollision(schema : Array<Array<number>>, offsetX : number, offsetY : number) : boolean {
+  private checkCollision(schema: number[][], offsetX: number, offsetY: number): boolean {
     for (let y = 0; y < schema.length; y++) {
       for (let x = 0; x < schema[y].length; x++) {
-        const pieceY = y + this._currentY + offsetY;
-        const pieceX = x + this._currentX + offsetX;
+        if (schema[y][x] === 0) continue;
 
-        if (schema[y][x] !== 0 && pieceY > 0
-          && (pieceY >= this._HEIGHT
-            || pieceX < 0
-            || pieceX > this._WIDTH
-            || this._landed[pieceY][pieceX] !== 0)) {
-          return true;
-        }
+        const px = x + this._currentX + offsetX;
+        const py = y + this._currentY + offsetY;
+
+        // 1) 横向边界：任何高度都必须限制在 [0, WIDTH-1]
+        if (px < 0 || px >= this._WIDTH) return true;
+
+        // 2) 纵向底边界：不能超过底部
+        if (py >= this._HEIGHT) return true;
+
+        // 3) 与已落方块的碰撞：仅当进入可见区(>=0)时才检查网格
+        if (py >= 0 && this._landed[py][px] !== 0) return true;
       }
     }
-
     return false;
   }
 
@@ -340,6 +342,11 @@ class TetrisGame {
 
     this._currentY = -this._currentSchema.length + 1;
     this._currentX = Math.floor((this._WIDTH / 2) - (this._currentSchema[0].length / 2));
+
+    // 生成后立即检测：若一生成就与堆叠/边界冲突，则直接判负
+    if (this.checkCollision(this._currentSchema, 0, 0)) {
+      this.gameOver();
+    }
   }
 
   private static getNewArray(width : number, height : number) : Array<Array<number>>{
